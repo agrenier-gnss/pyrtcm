@@ -29,8 +29,8 @@ Arrays could just as easily be numpy arrays if preferred.
 
 Created on 18 Apr 2024
 
-:author: semuadmin
-:copyright: SEMU Consulting © 2024
+:author: semuadmin (Steve Smith)
+:copyright: semuadmin © 2024
 :license: BSD 3-Clause
 """
 

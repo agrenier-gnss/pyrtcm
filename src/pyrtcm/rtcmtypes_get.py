@@ -50,8 +50,8 @@ In some instances, the size of the repeating element is derived from multiple
 attributes. In these cases the element size is denoted by a composite attribute
 name which is calculated within `rtcmmessage.py` e.g. 'NHARMCOEFFC'
 
-:author: semuadmin
-:copyright: SEMU Consulting © 2022
+:author: semuadmin (Steve Smith)
+:copyright: semuadmin © 2022
 :license: BSD 3-Clause
 """
 

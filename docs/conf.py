@@ -20,8 +20,8 @@ from pyrtcm import version as VERSION
 # -- Project information -----------------------------------------------------
 
 project = "pyrtcm"
-copyright = "2022, SEMU Consulting"
-author = "SEMU Consulting"
+copyright = "2021 semuadmin (Steve Smith)"
+author = "semuadmin (Steve Smith)"
 
 # The full version, including alpha/beta/rc tags
 release = VERSION
