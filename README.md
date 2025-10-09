@@ -90,12 +90,21 @@ or without a buffer wrapper). `pyrtcm` implements an internal `SocketStream` cla
 
 Individual RTCM messages can then be read using the `RTCMReader.read()` function, which returns both the raw binary data (as bytes) and the parsed data (as a `RTCMMessage`, via the `parse()` method). The function is thread-safe in so far as the incoming data stream object is thread-safe. `RTCMReader` also implements an iterator.
 
-Example -  Serial input:
+The constructor accepts the following optional keyword arguments:
+
+* `validate`: `VALCKSUM` (0x01) = validate checksum (default), `VALNONE` (0x00) = ignore invalid checksum or length
+* `quitonerror`: `ERR_IGNORE` (0) = ignore errors, `ERR_LOG` (1) = log errors and continue (default), `ERR_RAISE` (2) = (re)raise errors and terminate
+* `labelmsm`: 1 = use RINEX code eg. "2C" (default), 2 = use Frequency band e.g. "L2" (see e.g. [GPS-SIG-MAP](https://github.com/semuconsulting/pyrtcm/blob/main/src/pyrtcm/rtcmtables.py#L16)).  This argument affects the representation of `CELLSIG` values in RTCM3 MSM (multiple signal message) payloads:
+
+  - labelmsm=1: `CELLSIG_01=2C`, `CELLSIG_02=2W`, `CELLSIG_03=5I`, etc.
+  - labelmsm=2: `CELLSIG_01=L2`, `CELLSIG_02=L2`, `CELLSIG_03=L5`, etc.
+
+Example A -  Serial input, logging any errors and displaying any CELLSIG values in RINEX format:
 ```python
 from serial import Serial
-from pyrtcm import RTCMReader
+from pyrtcm import RTCMReader, ERR_LOG
 with Serial('/dev/tty.usbmodem14101', 9600, timeout=3) as stream:
-  rtr = RTCMReader(stream)
+  rtr = RTCMReader(stream, quitonerror=ERR_LOG, labelmsm=1)
   raw_data, parsed_data = rtr.read()
   if parsed_data is not None:
     print(parsed_data)
@@ -104,22 +113,22 @@ with Serial('/dev/tty.usbmodem14101', 9600, timeout=3) as stream:
 "<RTCM(1077, DF002=1077, DF003=0, DF004=204137001, DF393=1, DF409=0, DF001_7=0, ..., DF404_15=-9556, DF404_16=-2148, DF404_17=-2174)>",     
 ```
 
-Example - File input (using iterator).
+Example B - File input (using iterator) - this will terminate on error.
 ```python
-from pyrtcm import RTCMReader
+from pyrtcm import RTCMReader, ERR_RAISE
 with open('rtcmdata.log', 'rb') as stream:
-  rtr = RTCMReader(stream)
+  rtr = RTCMReader(stream, quitonerror=ERR_RAISE, labelmsm=1)
   for raw_data, parsed_data in rtr:
     print(parsed_data)
 ```
 
-Example - Socket input (using iterator):
+Example C - Socket input (using iterator), ignoring any errors and displaying any CELLSIG values in Frequency band format:
 ```python
 import socket
-from pyrtcm import RTCMReader
+from pyrtcm import RTCMReader, ERR_IGNORE
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as stream:
   stream.connect(("localhost", 50007))
-  rtr = RTCMReader(stream)
+  rtr = RTCMReader(stream, quitonerror=ERR_IGNORE, labelmsm=2)
   for raw_data, parsed_data in rtr:
     print(parsed_data)
 ```
@@ -130,6 +139,11 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as stream:
 You can parse individual RTCM messages using the static `RTCMReader.parse(data)` function, which takes a bytes array containing a binary RTCM message and returns a `RTCMMessage` object.
 
 **NB:** Once instantiated, an `RTCMMessage` object is immutable.
+
+The `parse()` method accepts the following optional keyword arguments:
+
+* `validate`: `VALCKSUM` (0x01) = validate checksum (default), `VALNONE` (0x00) = ignore invalid checksum or length
+* `labelmsm`: 1 = use RINEX code eg. "2C" (default), 2 = use Frequency e.g. "L2".
 
 Example:
 ```python
@@ -155,6 +169,8 @@ print(msg.DF404_07)
 204137001
 5534
 ```
+
+**Note that** MSM message payloads comprise two discrete repeating groups - a 'SAT' group of size `NSat` relating to PRN (e.g. `PRN_01=007`, `PRN_02=027`, etc.), and a 'CELL' group of size `NCell` relating to a combination of PRN and Signal (e.g. `CELLPRN_01=007, CELLSIG_01=1C`, `CELLPRN_02=007 CELLSIG_02=2C`, `CELLSIG_03=027, CELLSIG_03=1C`, `CELLPRN_04=027, CELLSIG_04=2C`, etc.).
 
 Attributes within repeating groups are parsed with a two-digit suffix (`DF419_01`, `DF419_02`, etc. See [example below](#iterating) for an illustration of how to iterate through grouped attributes).
 
