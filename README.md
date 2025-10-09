@@ -170,7 +170,7 @@ print(msg.DF404_07)
 5534
 ```
 
-**Note that** MSM message payloads comprise two discrete repeating groups - a 'SAT' group of size `NSat` relating to PRN (e.g. `PRN_01=007`, `PRN_02=027`, etc.), and a 'CELL' group of size `NCell` relating to a combination of PRN and Signal (e.g. `CELLPRN_01=007, CELLSIG_01=1C`, `CELLPRN_02=007 CELLSIG_02=2C`, `CELLSIG_03=027, CELLSIG_03=1C`, `CELLPRN_04=027, CELLSIG_04=2C`, etc.).
+**Note that** MSM message payloads comprise two discrete repeating groups - a 'SAT' group of size `NSat` relating to PRN (e.g. `PRN_01=007`, `PRN_02=027`, etc.), and a 'CELL' group of size `NCell` relating to a combination of PRN and Signal (e.g. `CELLPRN_01=007, CELLSIG_01=1C`, `CELLPRN_02=007 CELLSIG_02=2C`, `CELLPRN_03=027, CELLSIG_03=1C`, `CELLPRN_04=027, CELLSIG_04=2C`, etc.).
 
 Attributes within repeating groups are parsed with a two-digit suffix (`DF419_01`, `DF419_02`, etc. See [example below](#iterating) for an illustration of how to iterate through grouped attributes).
 
