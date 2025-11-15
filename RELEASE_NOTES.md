@@ -1,5 +1,9 @@
 # pyrtcm Release Notes
 
+### RELEASE 1.1.10
+
+1. Add dependency on `pypnmeagps` for `SocketWrapper` class (*previously duplicated here*) and utility methods e.g. `ecef2llh` and `llh2ecef`.
+
 ### RELEASE 1.1.9
 
 FIXES:

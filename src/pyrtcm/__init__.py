@@ -6,6 +6,8 @@ Created on 14 Feb 2022
 :license: BSD 3-Clause
 """
 
+from pynmeagps import SocketWrapper, ecef2llh, llh2ecef
+
 from pyrtcm._version import __version__
 from pyrtcm.exceptions import (
     ParameterError,
@@ -21,6 +23,5 @@ from pyrtcm.rtcmtypes_core import *
 from pyrtcm.rtcmtypes_get import *
 from pyrtcm.rtcmtypes_get_igs import *
 from pyrtcm.rtcmtypes_get_msm import *
-from pyrtcm.socketwrapper import SocketWrapper
 
 version = __version__  # pylint: disable=invalid-name

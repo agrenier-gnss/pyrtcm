@@ -76,14 +76,6 @@ pyrtcm.rtcmtypes\_get\_msm module
    :undoc-members:
    :show-inheritance:
 
-pyrtcm.socketwrapper module
----------------------------
-
-.. automodule:: pyrtcm.socketwrapper
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 Module contents
 ---------------
 
