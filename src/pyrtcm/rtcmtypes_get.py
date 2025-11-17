@@ -55,7 +55,7 @@ name which is calculated within `rtcmmessage.py` e.g. 'NHARMCOEFFC'
 :license: BSD 3-Clause
 """
 
-# pylint: disable=too-many-lines
+# pylint: disable=too-many-lines, line-too-long
 
 from pyrtcm.rtcmtypes_core import NHARMCOEFFC, NHARMCOEFFS, NRES
 

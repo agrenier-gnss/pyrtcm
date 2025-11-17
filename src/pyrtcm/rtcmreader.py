@@ -27,6 +27,8 @@ Created on 14 Feb 2022
 from logging import getLogger
 from socket import socket
 
+from pynmeagps import SocketWrapper
+
 from pyrtcm.exceptions import (
     RTCMMessageError,
     RTCMParseError,
@@ -41,7 +43,6 @@ from pyrtcm.rtcmtypes_core import (
     ERR_RAISE,
     VALCKSUM,
 )
-from pyrtcm.socketwrapper import SocketWrapper
 
 
 class RTCMReader:

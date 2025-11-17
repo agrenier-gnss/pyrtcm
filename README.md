@@ -6,6 +6,7 @@
 [Parsing](#parsing) |
 [Generating](#generating) |
 [Serializing](#serializing) |
+[Utilities](#utilities) |
 [Examples](#examples) |
 [Extensibility](#extensibility) |
 [Command Line Utility](#cli) |
@@ -253,6 +254,16 @@ serialOut.write(output)
 <RTCM(1005, DF002=1005, DF003=0, DF021=0, DF022=1, DF023=1, DF024=1, DF141=0, DF025=4444030.8028, DF142=1, DF001_1=0, DF026=3085671.2349, DF364=0, DF027=3366658.256)>
 b'\xd3\x00\x13>\xd0\x00\x03\x8aX\xd9I<\x87/4\x10\x9d\x07\xd6\xafH Z\xd7\xf7'
 ```
+
+---
+## <a name="utilities">Utility Methods</a>
+ 
+ `pyrtcm` provides a number of utility methods (via the `pynmeagps` library), including:
+
+ - `ecef2llh` - converts ECEF (X, Y, Z) coordinates to geodetic (lat, lon, ellipsoidal height) coordinates
+ - `llh2ecef` - converts geodetic (lat, lon, ellipsoidal height) coordinates to ECEF (X, Y, Z) coordinates
+
+See [Sphinx documentation](https://www.semuconsulting.com/pynmeagps/pynmeagps.html#module-pynmeagps.nmeahelpers) for details.
 
 ---
 ## <a name="examples">Examples</a>

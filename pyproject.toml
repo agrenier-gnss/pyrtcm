@@ -33,7 +33,7 @@ classifiers = [
     "Topic :: Scientific/Engineering :: GIS",
 ]
 
-dependencies = []
+dependencies = ["pynmeagps >= 1.0.56"]
 
 [project.urls]
 homepage = "https://github.com/semuconsulting/pyrtcm"
@@ -99,7 +99,7 @@ disable = """
 
 [tool.pytest.ini_options]
 minversion = "7.0"
-addopts = "--cov --cov-report html --cov-fail-under 98"
+addopts = "--cov --cov-report html --cov-fail-under 99"
 pythonpath = ["src"]
 
 [tool.coverage.run]
@@ -109,7 +109,7 @@ source = ["src"]
 source = ["src"]
 
 [tool.coverage.report]
-fail_under = 98
+fail_under = 99
 
 [tool.coverage.html]
 directory = "htmlcov"
