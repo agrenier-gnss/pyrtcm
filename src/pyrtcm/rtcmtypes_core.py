@@ -12,6 +12,8 @@ Information sourced from RTCM STANDARD 10403.3 © 2016 RTCM
 
 # pylint: disable=line-too-long
 
+MPI = 3.141592653589793
+
 NMEA_HDR = [
     b"$V",
     b"$M",
@@ -613,6 +615,16 @@ RTCM_DATA_FIELDS = {
     "DF476": (INT, 16, 0.005, "Spherical Harmonic Coefficient C"),
     "DF477": (INT, 16, 0.005, "Spherical Harmonic Coefficient S"),
     "DF478": (UINT, 9, 0.05, "VTEC Quality Indicator"),
+    # /* Added by AG
+    "DF480": (INT, 9, MPI/256.0, "Yaw Angle"),
+    "DF481": (INT, 8, MPI/8192.0, "Yaw Rate"),
+    "DF482": (INT, 20, 0.0001, "Phase Bias"),
+    "DF483": (UINT, 1, 1, "Integer Indicator"),
+    "DF484": (UINT, 2, 1, "Wide Lane Indicator"),
+    "DF485": (UINT, 4, 1, "Discontinuity Counter"),
+    "DF486": (UINT, 1, 1, "Dispervice Bias Consistency Indicator"),
+    "DF487": (UINT, 1, 1, "Melbourbe-Wubbena Consistency Indicator"),
+    # Added by AG */
     "DF488": (UINT, 6, 0, "BDS Satellite ID"),
     "DF489": (UINT, 13, 1, "BDS Week Number"),
     "DF490": (BIT, 4, 1, "BDS URAI"),

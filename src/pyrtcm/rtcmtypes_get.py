@@ -1767,6 +1767,192 @@ RTCM_PAYLOADS_GET = {
             },
         ),
     },
+    "1265": {
+        "DF002": "Message Number",
+        "DF385": "GPS Epoch Time 1s",
+        "DF391": "SSR Update Interval",
+        "DF388": "Multiple Message Indicator",
+        "DF413": "IOD SSR",
+        "DF414": "SSR Provider ID",
+        "DF415": "SSR Solution ID",
+        "DF486": "Dispervice Bias Consistency Indicator",
+        "DF487": "Melbourbe-Wubbena Consistency Indicator",
+        "DF387": "No. of Satellites",
+        "groupsat": (
+            "DF387",
+            {
+                "DF068": "GPS Satellite ID",
+                "DF379": "No. of Phase Biases Processed",
+                "DF480": "Yaw Angle",
+                "DF481": "Yaw Rate",
+                "groupbias": (  # nested group
+                    "DF379+1",  # +1 signifies 1 nested group index must be added
+                    {
+                        "DF380": "GPS Signal and Tracking Mode Indicator",
+                        "DF483": "Signal Integer Indicator",
+                        "DF484": "Signal Wide-Lane Indicator",
+                        "DF485": "Signal Discontinuity Counter",
+                        "DF482": "Phase Bias",
+                    },
+                ),
+            },
+        ),
+    },
+    "1266": {
+        "DF002": "Message Number",
+        "DF386": "GLONASS Epoch Time 1s",
+        "DF391": "SSR Update Interval",
+        "DF388": "Multiple Message Indicator",
+        "DF413": "IOD SSR",
+        "DF414": "SSR Provider ID",
+        "DF415": "SSR Solution ID",
+        "DF486": "Dispervice Bias Consistency Indicator",
+        "DF487": "Melbourbe-Wubbena Consistency Indicator",
+        "DF387": "No. of Satellites",
+        "groupsat": (
+            "DF387",
+            {
+                "DF384": "GLONASS Satellite ID",
+                "DF379": "No. of Phase Biases Processed",
+                "DF480": "Yaw Angle",
+                "DF481": "Yaw Rate",
+                "groupbias": (  # nested group
+                    "DF379+1",  # +1 signifies 1 nested group index must be added
+                    {
+                        "DF381": "GLONASS Signal and Tracking Mode Indicator",
+                        "DF483": "Signal Integer Indicator",
+                        "DF484": "Signal Wide-Lane Indicator",
+                        "DF485": "Signal Discontinuity Counter",
+                        "DF482": "Phase Bias",
+                    },
+                ),
+            },
+        ),
+    },
+    "1267": {
+        "DF002": "Message Number",
+        "DF458": "Galileo Epoch Time 1s",
+        "DF391": "SSR Update Interval",
+        "DF388": "Multiple Message Indicator",
+        "DF413": "IOD SSR",
+        "DF414": "SSR Provider ID",
+        "DF415": "SSR Solution ID",
+        "DF486": "Dispervice Bias Consistency Indicator",
+        "DF487": "Melbourbe-Wubbena Consistency Indicator",
+        "DF387": "No. of Satellites",
+        "groupsat": (
+            "DF387",
+            {
+                "DF252": "Galileo Satellite ID",
+                "DF379": "No. of Phase Biases Processed",
+                "DF480": "Yaw Angle",
+                "DF481": "Yaw Rate",
+                "groupbias": (  # nested group
+                    "DF379+1",  # +1 signifies 1 nested group index must be added
+                    {
+                        "DF382": "Galileo Signal and Tracking Mode Indicator",
+                        "DF483": "Signal Integer Indicator",
+                        "DF484": "Signal Wide-Lane Indicator",
+                        "DF485": "Signal Discontinuity Counter",
+                        "DF482": "Phase Bias",
+                    },
+                ),
+            },
+        ),
+    },
+    "1268": {
+        "DF002": "Message Number",
+        "DF460": "QZSS Epoch Time 1s",
+        "DF391": "SSR Update Interval",
+        "DF388": "Multiple Message Indicator",
+        "DF413": "IOD SSR",
+        "DF414": "SSR Provider ID",
+        "DF415": "SSR Solution ID",
+        "DF486": "Dispervice Bias Consistency Indicator",
+        "DF487": "Melbourbe-Wubbena Consistency Indicator",
+        "DF387": "No. of Satellites",
+        "groupsat": (
+            "DF387",
+            {
+                "DF429": "QZSS Satellite ID",
+                "DF379": "No. of Phase Biases Processed",
+                "DF480": "Yaw Angle",
+                "DF481": "Yaw Rate",
+                "groupbias": (  # nested group
+                    "DF379+1",  # +1 signifies 1 nested group index must be added
+                    {
+                        "DF461": "QZSS Signal and Tracking Mode Indicator",
+                        "DF483": "Signal Integer Indicator",
+                        "DF484": "Signal Wide-Lane Indicator",
+                        "DF485": "Signal Discontinuity Counter",
+                        "DF482": "Phase Bias",
+                    },
+                ),
+            },
+        ),
+    },
+    "1269": {
+        "DF002": "Message Number",
+        "DF462": "SBAS Epoch Time 1s",
+        "DF391": "SSR Update Interval",
+        "DF388": "Multiple Message Indicator",
+        "DF413": "IOD SSR",
+        "DF414": "SSR Provider ID",
+        "DF415": "SSR Solution ID",
+        "DF486": "Dispervice Bias Consistency Indicator",
+        "DF487": "Melbourbe-Wubbena Consistency Indicator",
+        "DF387": "No. of Satellites",
+        "groupsat": (
+            "DF387",
+            {
+                "DF463": "SBAS Satellite ID",
+                "DF379": "No. of Phase Biases Processed",
+                "DF480": "Yaw Angle",
+                "DF481": "Yaw Rate",
+                "groupbias": (  # nested group
+                    "DF379+1",  # +1 signifies 1 nested group index must be added
+                    {
+                        "DF464": "SBAS Signal and Tracking Mode Indicator",
+                        "DF483": "Signal Integer Indicator",
+                        "DF484": "Signal Wide-Lane Indicator",
+                        "DF485": "Signal Discontinuity Counter",
+                        "DF482": "Phase Bias",
+                    },
+                ),
+            },
+        ),
+    },
+    "1270": {
+        "DF002": "Message Number",
+        "DF465": "BDS Epoch Time 1s",
+        "DF391": "SSR Update Interval",
+        "DF388": "Multiple Message Indicator",
+        "DF413": "IOD SSR",
+        "DF414": "SSR Provider ID",
+        "DF415": "SSR Solution ID",
+        "DF486": "Dispervice Bias Consistency Indicator",
+        "DF487": "Melbourbe-Wubbena Consistency Indicator",
+        "DF387": "No. of Satellites",
+        "groupsat": (
+            "DF387",
+            {
+                "DF488": "BDS Satellite ID",
+                "DF379": "No. of Phase Biases Processed",
+                "DF480": "Yaw Angle",
+                "DF481": "Yaw Rate",
+                "groupbias": (  # nested group
+                    "DF379+1",  # +1 signifies 1 nested group index must be added
+                    {
+                        "DF467": "BDS Signal and Tracking Mode Indicator",
+                        "DF483": "Signal Integer Indicator",
+                        "DF484": "Signal Wide-Lane Indicator",
+                        "DF485": "Signal Discontinuity Counter",
+                        "DF482": "Phase Bias",
+                    },
+                ),
+            },
+        ),
+    },
     "1300": {
         "DF002": "Message Number",
         "DF562": "Service CRS Name Counter",
