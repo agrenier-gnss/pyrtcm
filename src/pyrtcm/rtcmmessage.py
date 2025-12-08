@@ -77,10 +77,14 @@ class RTCMMessage:
         try:
             # get payload definition dict for this message identity
             pdict = self._get_dict()
+            # if self.identity == "1264":
+            #     print("")
             if pdict is None:  # unknown (or not yet implemented) message identity
                 self._do_unknown()
                 return
             for anam in pdict:  # process each attribute in dict
+                # if anam == "DF472":
+                #     print("")
                 offset, index = self._set_attribute(anam, pdict, offset, index)
 
         except Exception as err:  # pragma: no cover
@@ -241,6 +245,8 @@ class RTCMMessage:
         if atyp == STR:  # concatenated string
             setattr(self, anam, getattr(self, anam, "") + val)
         else:
+            if anam in ['DF472']:
+                val += 1
             setattr(self, anami, val)
         offset += asiz
 

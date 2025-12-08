@@ -609,7 +609,7 @@ RTCM_DATA_FIELDS = {
     "DF470": (BIT, 10, 8, "BDS toe Modulo"),
     "DF471": (BIT, 8, 0, "BDS IOD"),
     "DF472": (UINT, 2, 1, "Number of Ionospheric Layers"),
-    "DF473": (UINT, 8, 10, "Height of Ionospheric Layer"),
+    "DF473": (UINT, 8, 10000.0, "Height of Ionospheric Layer"),
     "DF474": (UINT, 4, 1, "Spherical Harmonics Degree"),
     "DF475": (UINT, 4, 1, "Spherical Harmonics Order"),
     "DF476": (INT, 16, 0.005, "Spherical Harmonic Coefficient C"),
