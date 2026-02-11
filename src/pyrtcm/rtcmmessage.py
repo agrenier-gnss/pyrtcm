@@ -245,7 +245,7 @@ class RTCMMessage:
         if atyp == STR:  # concatenated string
             setattr(self, anam, getattr(self, anam, "") + val)
         else:
-            if anam in ['DF472']:
+            if anam in ['DF472', 'IDF035']:
                 val += 1
             setattr(self, anami, val)
         offset += asiz
