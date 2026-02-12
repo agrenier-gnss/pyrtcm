@@ -752,7 +752,7 @@ RTCM_DATA_FIELDS = {
     "IDF033": (BIT, 1, 1, "MW Consistency Indicator"),
     "IDF034": (BIT, 6, 1, "SSR URA"),
     "IDF035": (UINT, 2, 1, "Number of Ionospheric Layers"),
-    "IDF036": (UINT, 8, 10, "Height of Ionospheric Layer"),
+    "IDF036": (UINT, 8, 10000, "Height of Ionospheric Layer"),
     "IDF037": (UINT, 4, 1, "Spherical Harmonics Degree"),
     "IDF038": (UINT, 4, 1, "Spherical Harmonics Order"),
     "IDF039": (INT, 16, 0.005, "Spherical Harmonic Coefficient C"),
